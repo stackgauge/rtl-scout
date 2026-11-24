@@ -1,0 +1,63 @@
+name: Release
+
+# release-please watches main for Conventional Commits and maintains a
+# "Release PR". When that PR is merged it creates the tag + GitHub Release,
+# and the same run then publishes to npm via OIDC Trusted Publishing.
+#
+# workflow_dispatch is a manual escape hatch: it runs the publish steps for
+# the current main (useful to seed the first release or recover a failed one).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write # create release commits, tags and GitHub Releases
+  pull-requests: write # open/update the Release PR
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write # OIDC: mint a short-lived npm publish credential + provenance
+    steps:
+      - name: Run release-please
+        uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      - name: Checkout
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
+        uses: actions/checkout@v4
+
+      # Node 24 bundles npm >= 11.5.1, which has OIDC Trusted Publishing built in.
+      - name: Set up Node
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
+        run: npm ci
+
+      - name: Build
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
+        run: npm run build
+
+      # No NODE_AUTH_TOKEN: npm exchanges the GitHub OIDC id-token for a one-time
+      # publish credential via the trusted publisher configured on npm (GitHub
+      # Actions, repo next-dna/rtl-scout, workflow release.yml, "Allow npm publish").
+      - name: Publish to npm
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
+        run: npm publish --access public

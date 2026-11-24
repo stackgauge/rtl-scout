@@ -1,0 +1,5 @@
+rtl/alu.sv:7:1: File must end with a newline. [posix-eof]
+rtl/alu.sv:2:11: Parameter storage type must be declared explicitly. [explicit-parameter-storage-type]
+rtl/fifo.sv:14:3: Line length exceeds max: 100; is: 132. [line-length]
+this line is not a finding and should be ignored
+rtl/fifo.sv:20:5-18: Signal name must use lower_snake_case. [module-port-lower-snake-case]
