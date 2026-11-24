@@ -3,7 +3,7 @@
 ## Development setup
 
 ```bash
-git clone https://github.com/next-dna/rtl-scout.git
+git clone https://github.com/stackgauge/rtl-scout.git
 cd rtl-scout
 npm install
 npm run build

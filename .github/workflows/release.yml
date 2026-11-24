@@ -57,7 +57,7 @@ jobs:
 
       # No NODE_AUTH_TOKEN: npm exchanges the GitHub OIDC id-token for a one-time
       # publish credential via the trusted publisher configured on npm (GitHub
-      # Actions, repo next-dna/rtl-scout, workflow release.yml, "Allow npm publish").
+      # Actions, repo stackgauge/rtl-scout, workflow release.yml, "Allow npm publish").
       - name: Publish to npm
         if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
         run: npm publish --access public

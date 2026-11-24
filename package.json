@@ -1,5 +1,5 @@
 {
-  "name": "@nextdna/rtl-scout",
+  "name": "@stackgauge/rtl-scout",
   "version": "0.1.0",
   "description": "Lint your Verilog/SystemVerilog in CI and get a cleanliness grade — a zero-dependency CLI wrapper around Verible. Modern lint-in-CI for hardware teams.",
   "keywords": [
@@ -25,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/next-dna/rtl-scout.git"
+    "url": "git+https://github.com/stackgauge/rtl-scout.git"
   },
   "bugs": {
-    "url": "https://github.com/next-dna/rtl-scout/issues"
+    "url": "https://github.com/stackgauge/rtl-scout/issues"
   },
-  "homepage": "https://github.com/next-dna/rtl-scout#readme",
+  "homepage": "https://github.com/stackgauge/rtl-scout#readme",
   "engines": {
     "node": ">=18.0.0"
   },
