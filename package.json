@@ -1,6 +1,6 @@
 {
   "name": "@stackgauge/rtl-scout",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Lint your Verilog/SystemVerilog in CI and get a cleanliness grade — a zero-dependency CLI wrapper around Verible. Modern lint-in-CI for hardware teams.",
   "keywords": [
     "verilog",

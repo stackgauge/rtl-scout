@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/stackgauge/rtl-scout/compare/rtl-scout-v0.1.1...rtl-scout-v0.2.0) (2026-11-24)
+
+
+### Documentation
+
+* drop personal handle from author line ([#4](https://github.com/stackgauge/rtl-scout/issues/4)) ([468d872](https://github.com/stackgauge/rtl-scout/commit/468d872637cea8d0a5b2edefc6e97042dd759d35))
+
 ## [0.1.1](https://github.com/stackgauge/rtl-scout/compare/rtl-scout-v0.1.0...rtl-scout-v0.1.1) (2026-11-24)
 
 
