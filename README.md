@@ -32,6 +32,8 @@ npm install -g @stackgauge/rtl-scout
 rtl-scout lint src/
 ```
 
+> **Tip — verify your version.** `npx` and global installs can serve a **stale cached copy**, so a new feature may look "missing." Check with `rtl-scout --version` (or `npx @stackgauge/rtl-scout@latest --version`). If it's behind, update with `npm install -g @stackgauge/rtl-scout@latest`, or clear the npx cache: `rm -rf "$(npm config get cache)/_npx"`.
+
 ## Usage
 
 ```bash
