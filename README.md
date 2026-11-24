@@ -22,13 +22,13 @@ RTL linting catches bugs and style issues *before* you burn hours in simulation 
 ## Install
 
 ```bash
-npx @nextdna/rtl-scout lint src/
+npx @stackgauge/rtl-scout lint src/
 ```
 
 Or globally:
 
 ```bash
-npm install -g @nextdna/rtl-scout
+npm install -g @stackgauge/rtl-scout
 rtl-scout lint src/
 ```
 
