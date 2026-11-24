@@ -99,7 +99,7 @@ npm test
 
 ## Author
 
-Created and maintained by **Sandip Gami** ([@next-dna](https://github.com/next-dna)).
+Created and maintained by **Sandip Gami**.
 
 ## License
 
